@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use App\Models\Event;
 use Illuminate\Database\Seeder;
 
@@ -37,5 +38,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Event::factory(30)->create();
+
+        User::factory()->create(['name','','']);
+        User::factory()->create(['name',]);
+
     }
 }

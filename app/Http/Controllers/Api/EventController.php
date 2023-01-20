@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Event;
-use App\Models\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class EventController extends Controller
+class EvenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +14,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        //$eventold
-        //$eventnew...
-        //traeme todo de la base de datos
-        $events = Event::get();
-        //var_dump($events);
-
-        return view('home', compact('events'));
-
+        //
+        //$events = Event::get();
+        //retourn 
+        //API
     }
 
     /**
@@ -87,31 +81,12 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id){
-        Event::destroy($id);
+    // public function destroy($id)
+    // {
+    //     //
+    //     $event = Event::find($id);
+    //     $event->delete
+    // }
 
-        return redirect()->route(('home'));
-    }
-    
-    public function inscribe($id){
-
-        $event = Event::find($id);
-        $user = User::find(Auth::id());
-
-        $user->event()->attach($event);
-
-        return redirect()->route('home');
-    }
-
-    public function unscribe($id){
-
-        $event = Event::find($id);
-        $user = User::find(Auth::id());
-
-        $user->event()->detach($event);
-
-        return redirect()->route('home');
-    }
-
-    
+    //API
 }

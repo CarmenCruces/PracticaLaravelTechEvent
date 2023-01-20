@@ -22,3 +22,6 @@
 </div> -->
 estamos en la home
 @endsection
+
+
+<!-- aqui iria el boton para inscribirse y desinscribirse y luego se llevan al show--> 

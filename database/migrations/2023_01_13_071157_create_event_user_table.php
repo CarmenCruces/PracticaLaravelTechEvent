@@ -13,15 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('event_user', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->boolean('isAdmin')->default(false); //9enero
-            $table->rememberToken();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreing('user_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('event_id');
+            $table->foreing('event_id')->references('id')->on('events');
+
             $table->timestamps();
+
+
         });
     }
 
@@ -32,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('event_user');
     }
 };

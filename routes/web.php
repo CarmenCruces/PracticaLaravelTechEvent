@@ -23,3 +23,7 @@ Auth::routes();
 Route::get('/', [EventController::class, 'index']);
 Route::get('/home', [EventController::class, 'index']);
 
+/*ruta para inscribirse y desinscribirse*/
+Route::get('/inscribe/{id}', [EventController::class, 'inscribe'])->name('inscribe')->middleware('auth');
+Route::get('/unscribe/{id}', [EventController::class, 'unscribe'])->name('unscribe')->middleware('auth');
+
